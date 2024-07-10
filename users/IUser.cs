@@ -11,6 +11,7 @@ namespace Biblioteca
         private string name;
         private string cod;
         private int idade;
+        private int advert;
 
         public IUser (string nome, string codg, int age) {
             this.name = nome;
@@ -21,6 +22,7 @@ namespace Biblioteca
         public string getName() { return this.name; }
         public string getCod() { return this.cod; }
         public int getIdade() { return this.idade; }
+        public int gerAdvert() { return this.advert; }
 
     }
 }
