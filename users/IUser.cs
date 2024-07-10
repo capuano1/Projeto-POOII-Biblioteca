@@ -10,6 +10,7 @@ public abstract class IUser
     private string cod;
     private int idade;
     private int advert;
+    private string tipoUser;
 
     public IUser (string nome, string codg, int age) {
         this.name = nome;
@@ -20,6 +21,7 @@ public abstract class IUser
     public string getName() { return this.name; }
     public string getCod() { return this.cod; }
     public int getIdade() { return this.idade; }
-    public int gerAdvert() { return this.advert; }
+    public int getAdvert() { return this.advert; }
+    public int getTipoUser() {return this.tipoUser; }
 
 }
