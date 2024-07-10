@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kayano\\source\\repos\\ProjOO\\Biblioteca\\Biblioteca.csproj": {}
+    "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kayano\\source\\repos\\ProjOO\\Biblioteca\\Biblioteca.csproj": {
+    "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kayano\\source\\repos\\ProjOO\\Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\Kayano\\source\\repos\\ProjOO\\Biblioteca\\Biblioteca.csproj",
+        "projectPath": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
         "packagesPath": "C:\\Users\\Kayano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kayano\\source\\repos\\ProjOO\\Biblioteca\\obj\\",
+        "outputPath": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kayano\\AppData\\Roaming\\NuGet\\NuGet.Config",

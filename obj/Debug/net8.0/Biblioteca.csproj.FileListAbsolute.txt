@@ -12,3 +12,11 @@ C:\Users\Kayano\source\repos\ProjOO\Biblioteca\obj\Debug\net8.0\refint\Bibliotec
 C:\Users\Kayano\source\repos\ProjOO\Biblioteca\obj\Debug\net8.0\Biblioteca.pdb
 C:\Users\Kayano\source\repos\ProjOO\Biblioteca\obj\Debug\net8.0\Biblioteca.genruntimeconfig.cache
 C:\Users\Kayano\source\repos\ProjOO\Biblioteca\obj\Debug\net8.0\ref\Biblioteca.dll
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.AssemblyInfoInputs.cache
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.AssemblyInfo.cs
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.sourcelink.json
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.dll
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\refint\Biblioteca.dll
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.pdb
