@@ -8,7 +8,7 @@ public class Program
             Console.WriteLine("Bem-vindo a biblioteca UNIFESP\nDigite o número da sua ação:\n\n" +
                 "1 - Registrar usuário.\n" +
                 "2 - Remover usuário.\n" +
-                "3 - Buscar usuário" +
+                "3 - Buscar usuário\n" +
                 "4 - Buscar livro\n" +
                 "5 - Emprestar livro\n" +
                 "6 - Devolver livro\n" +
