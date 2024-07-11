@@ -17,7 +17,9 @@ public class Program
             input = int.Parse(Console.ReadLine().ToString());
             
             switch(input){
-                case 1:
+
+                case 1: // registrarUser
+
                     Console.WriteLine("Digite seu nome: ");
                     var nome = Console.ReadLine().ToString();
 
@@ -29,28 +31,32 @@ public class Program
 
                     Console.WriteLine("Você é:\n1 - Aluno\n2 - Professor\n 3 - Funcionário da Biblioteca");
                     var n = int.Parse(Console.ReadLine().ToString());
-/*
+
                     switch(n){
                         case 1: //ALUNO
-                            facade.registrarAluno(nome,codigo,idade);
+                            //facade.registerAluno(nome,codigo,idade);
                             break;
                         case 2: //PROFESSOR
-                            facade.registrarProfessor(nome,codigo,idade);
+                            //facade.registerProfessor(nome,codigo,idade);
                             break;
                         case 3: //FUNCIONARIO
-                            facade.registrarFuncionario(nome,codigo,idade);
+                            //facade.registerFuncionario(nome,codigo,idade);
                             break;
-                    }*/
+                    }
                     break;
 
 
-                case 2:
+                case 2: // removerUser
+
                     Console.WriteLine("Digite o código do usuário a ser removido: \n");
                     var cod = Console.ReadLine().ToString();
-                    //facade.removerUser(cod);
+                    //facade.removeUser(cod);
                     break;
-                case 3:
 
+                case 3: // buscarUser
+
+                    Console.WriteLine("Digite o código do usuário que você deseja observar: \n");
+                    //facade.searchUser(cod);
                     break;
                 case 4:
 
