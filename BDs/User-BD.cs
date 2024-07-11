@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,4 +23,9 @@ public class UserBD {
     public void registraUsuario(IUser user) {
         UserList.Add(user);
     }
+
+    public List<IUser> getUsers(){
+        return UserList;
+    }
+
 }

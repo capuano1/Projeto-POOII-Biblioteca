@@ -22,4 +22,14 @@ public class Facade {
         userBD.registraUsuario(new userProfessor(name, cod, idade));
     }
 
+    public void buscarUser(string codigo) {
+        var user = userBD.getUsers().Find(x => x.getCod() == codigo);
+        if(user != null){ 
+            Console.WriteLine($"Nome: {user.getName()}\nIdade: {user.getIdade()}\nTipo de usuário: {user.getTipoUser}");
+        }
+        else{
+            Console.WriteLine("Usuário não encontrado.");
+        }
+    }
+
 }

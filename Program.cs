@@ -34,13 +34,13 @@ public class Program
 
                     switch(n){
                         case 1: //ALUNO
-                            //facade.registerAluno(nome,codigo,idade);
+                            //facade.registrarAluno(nome,codigo,idade);
                             break;
                         case 2: //PROFESSOR
-                            //facade.registerProfessor(nome,codigo,idade);
+                            //facade.registrarProfessor(nome,codigo,idade);
                             break;
                         case 3: //FUNCIONARIO
-                            //facade.registerFuncionario(nome,codigo,idade);
+                            //facade.registrarFuncionario(nome,codigo,idade);
                             break;
                     }
                     break;
@@ -50,13 +50,13 @@ public class Program
 
                     Console.WriteLine("Digite o código do usuário a ser removido: \n");
                     var cod = Console.ReadLine().ToString();
-                    //facade.removeUser(cod);
+                    //facade.removerUser(cod);
                     break;
 
                 case 3: // buscarUser
 
                     Console.WriteLine("Digite o código do usuário que você deseja observar: \n");
-                    //facade.searchUser(cod);
+                    //facade.buscarUser(cod);
                     break;
                 case 4:
 
