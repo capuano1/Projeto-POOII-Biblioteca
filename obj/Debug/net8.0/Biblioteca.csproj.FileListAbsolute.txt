@@ -35,3 +35,10 @@ c:\Users\thiag\OneDrive\Documentos\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net
 c:\Users\thiag\OneDrive\Documentos\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.pdb
 C:\Users\thiag\OneDrive\Documentos\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.genruntimeconfig.cache
 C:\Users\thiag\OneDrive\Documentos\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\ref\Biblioteca.dll
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.exe
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.deps.json
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.runtimeconfig.json
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.dll
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\bin\Debug\net8.0\Biblioteca.pdb
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\Biblioteca.genruntimeconfig.cache
+C:\Users\Kayano\Documents\GitHub\Projeto-POOII-Biblioteca\obj\Debug\net8.0\ref\Biblioteca.dll
