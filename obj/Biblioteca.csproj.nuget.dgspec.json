@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {}
+    "C:\\Users\\thiag\\OneDrive\\Documentos\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {
+    "C:\\Users\\thiag\\OneDrive\\Documentos\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\thiag\\OneDrive\\Documentos\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
-        "packagesPath": "C:\\Users\\Kayano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kayano\\Documents\\GitHub\\Projeto-POOII-Biblioteca\\obj\\",
+        "projectPath": "C:\\Users\\thiag\\OneDrive\\Documentos\\GitHub\\Projeto-POOII-Biblioteca\\Biblioteca.csproj",
+        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thiag\\OneDrive\\Documentos\\GitHub\\Projeto-POOII-Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kayano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

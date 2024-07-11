@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 public class userEstudante : IUser {
     
-    public userEstudante(string nome, string codg, int age) : base(nome, codg, age) {
-        this.TipoUser = "Estudante";
-    }
-
+    public userEstudante (string nome, string codg, int age, string tipo) : base(nome, codg, age, "Estudante") {}
 }
