@@ -9,6 +9,7 @@ public abstract class IUser
     private string name;
     private string cod;
     private int idade;
+    
     private int advert;
     private string tipoUser;
 
