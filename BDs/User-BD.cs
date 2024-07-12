@@ -6,7 +6,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-public class UserBD {
+public class UserBD : BaseMedClass {
 
     private static UserBD? BD;
     private List<IUser> UserList;

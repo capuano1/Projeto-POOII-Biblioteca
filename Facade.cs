@@ -31,4 +31,10 @@ public class Facade {
             Console.WriteLine("Usuário não encontrado.");
         }
     }
+
+    public bool codExiste(string codigo) {
+        if (userBD.buscaUser(codigo) != null) return true;
+        return false;
+    }
+
 }
