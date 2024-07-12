@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public class Facade {
     
     private UserBD userBD;
+    private IHandler approvingChain;
 
     public Facade() {
         userBD = UserBD.instanciaBD();
