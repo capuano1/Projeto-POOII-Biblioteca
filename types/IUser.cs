@@ -26,6 +26,7 @@ public abstract class IUser
     public string getCod() { return this.cod; }
     public int getIdade() { return this.idade; }
     public int getAdvert() { return this.advert; }
+    public void giveAdvert() { this.advert += 1; }
     public int getNumLivros() { return this.numLivrosEmprestados; }
     public void setNumLivros(int numNovo) { this.numLivrosEmprestados = numNovo; }
     public string getTipoUser() { return this.tipoUser; }

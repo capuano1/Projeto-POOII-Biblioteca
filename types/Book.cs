@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 
 public class Book {
 
@@ -12,6 +11,9 @@ public class Book {
     private DateTime? launchDate;
     private List<string> genres;
     private List<HashSet<string>> subgenres;
+
+    private int copOwned;
+    private int copEmprestadas;
 
     public Book(string bname, List<string> authorl) {
         this.genres = new List<string>();
@@ -34,5 +36,10 @@ public class Book {
         subgenres.RemoveAt(aux);
     }
     public void removeSubgenre(string gen, string subgen) { subgenres[genres.FindIndex(ind => ind == gen)].Remove(subgen); }
+    public int getCopOwned() { return this.copOwned; }
+    public void setCopOwned(int num) { this.copOwned = num; }
+    public int getCopEmprestadas() { return this.copEmprestadas; }
+    public void empresta() { this.copEmprestadas += 1; }
+    public void devolve() { this.copEmprestadas -= 1; }
 
 }
