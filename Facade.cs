@@ -37,4 +37,13 @@ public class Facade {
         return false;
     }
 
+    public void removerUser(string codigo){
+        var user = userBD.buscaUser(codigo);
+        if(user != null){
+            userBD.removeUsuario( user );
+        }
+        else{
+            Console.WriteLine("Usuário não encontrado\n");
+        }
+    }
 }

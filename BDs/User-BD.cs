@@ -23,6 +23,10 @@ public class UserBD : BaseMedClass {
     public void registraUsuario(IUser user) {
         UserList.Add(user);
     }
+
+    public void removeUsuario(IUser user){
+        UserList.Remove(user);
+    }
     
     public List<IUser> getUsers(){
         return UserList;

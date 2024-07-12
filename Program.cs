@@ -75,7 +75,7 @@ public class Program
 
                     Console.WriteLine("Digite o código do usuário a ser removido: \n");
                     var cod = Console.ReadLine().ToString();
-                    //facade.removerUser(cod);
+                    facade.removerUser(cod);
                     break;
 
                 case 3: // buscarUser
