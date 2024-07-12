@@ -28,4 +28,8 @@ public class UserBD {
         return UserList;
     }
 
+    public IUser? buscaUser(string cod) {
+        return this.UserList.Find(x => x.getCod() == cod);
+    }
+
 }

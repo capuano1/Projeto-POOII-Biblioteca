@@ -23,7 +23,7 @@ public class Facade {
     }
 
     public void buscarUser(string codigo) {
-        var user = userBD.getUsers().Find(x => x.getCod() == codigo);
+        var user = userBD.buscaUser(codigo);
         if(user != null){ 
             Console.WriteLine($"Nome: {user.getName()}\nIdade: {user.getIdade()}\nTipo de usuário: {user.getTipoUser()}");
         }
@@ -31,5 +31,4 @@ public class Facade {
             Console.WriteLine("Usuário não encontrado.");
         }
     }
-
 }
