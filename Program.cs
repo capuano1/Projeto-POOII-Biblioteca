@@ -1,48 +1,73 @@
 ﻿using System;
+/*
+Link para o diagram UML do Projeto
+
+https://lucid.app/lucidchart/78f42a13-1e41-4808-a02c-e1da014b16f7/edit?viewport_loc=-1429%2C-921%2C3107%2C1352%2C0_0&invitationId=inv_28a8a5b3-e2e3-4e2c-a5d2-a9b5257834a9
+
+
+Imagine que você é funcionário da Biblioteca da UNIFESP, caso um user seja novo na biblioteca (este user podendo ser aluno, professor ou um novo funcionário), 
+você deve registrá-lo no banco de dados da biblioteca para poder emprestar os livros.
+
+
+*/
+
 public class Program
 {    
     public static void Main(){
+
+        Facade facade = new Facade();
+
         var input = 0;
         while (input != 7)
         {
-            Console.WriteLine("Bem-vindo a biblioteca UNIFESP\nDigite o número da sua ação:\n\n" +
-                "1 - Registrar usuário.\n" +
-                "2 - Remover usuário.\n" +
-                "3 - Buscar usuário\n" +
-                "4 - Buscar livro\n" +
-                "5 - Emprestar livro\n" +
-                "6 - Devolver livro\n" +
-                "7 - Sair\n\n");
+            Thread.Sleep(1500);
+            Console.WriteLine();
+            Console.WriteLine(  "1 - Registrar usuário.\n" +
+                                "2 - Remover usuário.\n" +
+                                "3 - Buscar usuário\n" +
+                                "4 - Buscar livro\n" +
+                                "5 - Emprestar livro\n" +
+                                "6 - Devolver livro\n" +
+                                "7 - Sair\n");
             
             input = int.Parse(Console.ReadLine().ToString());
+            Console.WriteLine();
             
             switch(input){
 
                 case 1: // registrarUser
 
-                    Console.WriteLine("Digite seu nome: ");
+                    Console.WriteLine("Digite seu nome");
                     var nome = Console.ReadLine().ToString();
+                    Console.WriteLine();
 
-                    Console.WriteLine("Digite seu código: ");
+                    Console.WriteLine("Digite seu código");
                     var codigo = Console.ReadLine().ToString();
+                    Console.WriteLine();
 
-                    Console.WriteLine("Digite sua idade: ");
-                    var idade = Console.ReadLine().ToString();
+                    Console.WriteLine("Digite sua idade");
+                    var idade = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine();
 
-                    Console.WriteLine("Você é:\n1 - Aluno\n2 - Professor\n 3 - Funcionário da Biblioteca");
+                    Console.WriteLine("Você é:\n1 - Aluno\n2 - Professor\n3 - Funcionário da Biblioteca\n");
                     var n = int.Parse(Console.ReadLine().ToString());
+                    Console.WriteLine();
 
                     switch(n){
                         case 1: //ALUNO
-                            //facade.registrarAluno(nome,codigo,idade);
+                            facade.registrarAluno(nome,codigo,idade);
+                            Console.WriteLine("Aluno registrado com sucesso!\n");
                             break;
                         case 2: //PROFESSOR
-                            //facade.registrarProfessor(nome,codigo,idade);
+                            facade.registrarProfessor(nome,codigo,idade);
+                            Console.WriteLine("Professor registrado com sucesso!\n");
                             break;
                         case 3: //FUNCIONARIO
-                            //facade.registrarFuncionario(nome,codigo,idade);
+                            facade.registrarFuncionario(nome,codigo,idade);
+                            Console.WriteLine("Funcionário registrado com sucesso!\n");
                             break;
                     }
+                    
                     break;
 
 
@@ -55,16 +80,21 @@ public class Program
 
                 case 3: // buscarUser
 
-                    Console.WriteLine("Digite o código do usuário que você deseja observar: \n");
-                    //facade.buscarUser(cod);
+                    Console.WriteLine("Digite o código do usuário que você deseja observar:");
+                    var code = Console.ReadLine().ToString();
+                    Console.WriteLine();
+                    facade.buscarUser(code);
                     break;
-                case 4:
+
+                case 4: // buscarLivro
 
                     break;
-                case 5:
+
+                case 5: // emprestarLivro
 
                     break;
-                case 6:
+
+                case 6: // devolverLivro
                     break;        
             }
 

@@ -23,7 +23,7 @@ public class UserBD {
     public void registraUsuario(IUser user) {
         UserList.Add(user);
     }
-
+    
     public List<IUser> getUsers(){
         return UserList;
     }
