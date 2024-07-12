@@ -44,7 +44,7 @@ public class Facade {
             userBD.removeUsuario( user );
         }
         else{
-            Console.WriteLine("Usuário não encontrado\n");
+            Console.WriteLine("Usuário não encontrado.\n");
         }
     }
 }
