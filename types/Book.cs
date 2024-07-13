@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 public class Book {
 
     private string name;
+    private int cod;
     private List<string> authors;
     private DateTime? launchDate;
     private List<string> genres;
@@ -15,14 +17,16 @@ public class Book {
     private int copOwned;
     private int copEmprestadas;
 
-    public Book(string bname, List<string> authorl) {
+    public Book(string bname, List<string> authorl, int codg) {
         this.genres = new List<string>();
         this.subgenres = new List<HashSet<string>>();
         this.name = bname;
         this.authors = authorl;
+        this.cod = codg;
     }
 
     public string getName() { return this.name; }
+    public int getCod() { return this.cod; }
     public List<string> getAuthors() { return this.authors; }
     public DateTime? getLaunchDate() { return this.launchDate; }
     public void setLaunchDate(DateTime time) { this.launchDate = time; }

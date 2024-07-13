@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 public class Facade {
     
-    private UserBD userBD;
+    private UBD userBD;
     private IHandler approvingChain;
 
+//Criar instancia do approving chain, fazendo new da primeira checagem e criando as outras.
+
     public Facade() {
-        userBD = UserBD.instanciaBD();
+        this.userBD = UserBD_static.iniciaBD();
     }
 
     public void registrarAluno(string name, string cod, int idade) {

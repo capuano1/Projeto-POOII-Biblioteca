@@ -6,17 +6,17 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-public class UserBD : BaseMedClass {
+public class UserBD_static : BaseMedClass, UBD {
 
-    private static UserBD? BD;
+    private static UserBD_static? BD;
     private List<IUser> UserList;
 
-    private UserBD() {
+    private UserBD_static() {
         UserList = new List<IUser>();
     }
 
-    public static UserBD instanciaBD() {
-        if (BD == null) BD = new UserBD();
+    public static UserBD_static iniciaBD() {
+        if (BD == null) BD = new UserBD_static();
         return BD;
     }
 
