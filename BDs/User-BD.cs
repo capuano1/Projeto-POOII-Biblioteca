@@ -20,20 +20,12 @@ public class UserBD : BaseMedClass {
         return BD;
     }
 
-    public void registraUsuario(IUser user) {
-        UserList.Add(user);
-    }
+    public void registraUsuario(IUser user) => UserList.Add(user); 
 
-    public void removeUsuario(IUser user){
-        UserList.Remove(user);
-    }
+    public void removeUsuario(IUser user) => UserList.Remove(user);
     
-    public List<IUser> getUsers(){
-        return UserList;
-    }
+    public List<IUser> getUsers() => UserList;
 
-    public IUser? buscaUser(string cod) {
-        return this.UserList.Find(x => x.getCod() == cod);
-    }
+    public IUser? buscaUser(string cod) => this.UserList.Find(x => x.getCod() == cod);
 
 }

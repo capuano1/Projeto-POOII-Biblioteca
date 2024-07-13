@@ -43,3 +43,26 @@ public class Book {
     public void devolve() { this.copEmprestadas -= 1; }
 
 }
+
+
+/*
+void static Main(){
+    facade.reservarLivro(string codigo, string livroTitulo);
+}
+
+public class Facade{
+    private Mediator m = new Imediator();
+    public void reservarLivro(string codigo, string livroTitulo){
+
+    }
+}
+
+public class Facade{
+
+    
+
+
+}
+
+
+*/
