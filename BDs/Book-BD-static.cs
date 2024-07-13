@@ -69,5 +69,6 @@ public class BookBD_static : BaseMedClass, BBD
     public void registraLivro(string bname, List<string> authorl) {
         incrementaMaiorCod();
         Book aux = new Book(bname, authorl, maiorCod);
+        this.BookList.Add(aux);
     }
 }
