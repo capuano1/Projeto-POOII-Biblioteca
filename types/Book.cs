@@ -39,6 +39,7 @@ public class Book {
     public int getCopOwned() { return this.copOwned; }
     public void setCopOwned(int num) { this.copOwned = num; }
     public int getCopEmprestadas() { return this.copEmprestadas; }
+    public int getCopAvailable() { return this.copOwned - this.copEmprestadas;}
     public void empresta() { this.copEmprestadas += 1; }
     public void devolve() { this.copEmprestadas -= 1; }
 
