@@ -16,6 +16,7 @@ public class BookBD_static : BaseMedClass, BBD
     private BookBD_static() {
         this.BookList = new List<Book>();
         maiorCod = 0;
+        this.setMediator(new ConcMediator(this, null, null));
     }
 
     private void incrementaMaiorCod() { maiorCod++; }
@@ -74,5 +75,11 @@ public class BookBD_static : BaseMedClass, BBD
         incrementaMaiorCod();
         Book aux = new Book(bname, authorl, maiorCod);
         this.BookList.Add(aux);
+        this.mediator.notifyAllUsers("Novo livro disponível: " + bname);
     }
+
+    private void callNotifier(IUser user, string message) {
+        this.mediator.notifyUser(user, message);
+    }
+
 }
