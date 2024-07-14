@@ -60,7 +60,7 @@ public class maxBookCheck : abstractHandler {
         this.maxBook = 3;
     }
 
-    public void setMaxAdvert(int maxBook) {
+    public void setMaxBook(int maxBook) {
         this.maxBook = maxBook;
     }
 
