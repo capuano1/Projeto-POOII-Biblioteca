@@ -34,12 +34,8 @@ public class advertCheck : abstractHandler {
 
     private int maxAdvert;
 
-    public advertCheck() {
-        this.maxAdvert = 3;
-    }
-
-    public void setMaxAdvert(int advert) {
-        this.maxAdvert = advert;
+    public advertCheck(int value) {
+        this.maxAdvert = value;
     }
 
     public override int handle(Book livro, IUser user) {
@@ -53,12 +49,8 @@ public class maxBookCheck : abstractHandler {
 
     private int maxBook;
 
-    public maxBookCheck() {
-        this.maxBook = 3;
-    }
-
-    public void setMaxBook(int maxBook) {
-        this.maxBook = maxBook;
+    public maxBookCheck(int value) {
+        this.maxBook = value;
     }
 
     public override int handle(Book livro, IUser user) {

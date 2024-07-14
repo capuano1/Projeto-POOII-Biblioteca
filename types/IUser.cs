@@ -46,5 +46,8 @@ public abstract class IUser
         }
         return -3;
     }
+    public void notify(string message) {
+        Console.WriteLine(message);
+    }
 
 }

@@ -103,4 +103,14 @@ public class Facade {
         mediator.devolveLivro(codLivro, codUser);
     }
 
+    public void configMaxAdvert (int value) {
+        ConcMediator mediator = new ConcMediator(null, null, null);
+        mediator.changeConfig("maxAdvert", value);
+    }
+
+    public void configMaxBook (int value) {
+        ConcMediator mediator = new ConcMediator(null, null, null);
+        mediator.changeConfig("maxBook", value);
+    }
+
 }

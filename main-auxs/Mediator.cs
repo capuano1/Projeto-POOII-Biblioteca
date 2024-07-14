@@ -7,25 +7,28 @@ using System.Threading.Tasks;
 public interface IMediator {
     public List<Book> buscaLivro (string type, string mes);
     public IUser? buscaUser (string cod);
+    public void changeConfig(string configuration, int value);
     public int chainCheck (Book livro, IUser user);
     public int emprestaLivro (int codLivro, string codUser);
     public int devolveLivro (int codLivro, string codUser);
-    void Notify (object objA, object objB);
+    public void notifyUser (IUser user, string message);
+    public void notifyAllUsers (string message);
 }
 
 public class ConcMediator : IMediator {
 
     private BBD? BookBD;
     private UBD? UserBD;
-    private BaseMedClass Component;
+    private BaseMedClass? Component;
     private IHandler? approvingChain;
+    private ConfigManager config;
 
-    public ConcMediator (BBD? book, UBD? user, BaseMedClass comp) {
+    public ConcMediator (BBD? book, UBD? user, BaseMedClass? comp) {
         this.BookBD = book;
         this.UserBD = user;
         this.Component = comp;
+        this.config = ConfigManager.instanciaConfig();
     }
-
 
     public List<Book> buscaLivro (string type, string mes) {
         switch (type) {
@@ -48,8 +51,19 @@ public class ConcMediator : IMediator {
         return UserBD.buscaUser(cod);
     }
 
+    public void changeConfig(string configuration, int value) {
+        switch (configuration) {
+            case "maxAdvert":
+                config.setMaxAdvert(value);
+                break;
+            case "maxBook":
+                config.setMaxBook(value);
+                break;
+        }
+    }
+
     public int chainCheck (Book livro, IUser user) {
-        approvingChain = new availableCheck().setNext(new advertCheck()).setNext(new maxBookCheck());
+        approvingChain = new availableCheck().setNext(new advertCheck(config.getMaxAdvert())).setNext(new maxBookCheck(config.getMaxBook()));
         return approvingChain.handle(livro, user);
     }
 
@@ -82,7 +96,16 @@ public class ConcMediator : IMediator {
         return 0;
     }
 
-    public void Notify (object objA, object objB) {}
+    public void notifyUser (IUser user, string message) {
+        user.notify(message);
+    }
+
+    public void notifyAllUsers (string message) {
+        List<IUser> users = this.UserBD.getUsers();
+        foreach (IUser usuario in users) {
+            usuario.notify(message);
+        }
+    }
 
 }
 
