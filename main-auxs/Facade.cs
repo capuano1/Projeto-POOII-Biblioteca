@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,21 +9,38 @@ public class Facade {
     
     private UBD userBD;
     private BBD bookBD;
-    private IHandler approvingChain;
 
     private ConcMediator instanciaBuscaLivro() {
-        return new ConcMediator(bookBD, null, new BuscaLivro());
+        BuscaLivro busc = new BuscaLivro();
+        ConcMediator med = new ConcMediator(bookBD, null, busc);
+        busc.setMediator(med);
+        return med;
     }
 
     private ConcMediator instanciaBuscaUser() {
-        return new ConcMediator(null, userBD, new BuscaUser());
+        BuscaUser busc = new BuscaUser();
+        ConcMediator med = new ConcMediator(bookBD, null, busc);
+        busc.setMediator(med);
+        return med;
     }
 
+    private ConcMediator instanciaEmprestaLivro() {
+        EmprestaLivro emp = new EmprestaLivro();
+        ConcMediator med = new ConcMediator(bookBD, null, emp);
+        emp.setMediator(med);
+        return med;
+    }
+
+    private ConcMediator instanciaDevolveLivro() {
+        DevolveLivro dev = new DevolveLivro();
+        ConcMediator med = new ConcMediator(bookBD, null, dev);
+        dev.setMediator(med);
+        return med;
+    }
 
     public Facade() {
         this.userBD = UserBD_static.iniciaBD();
         this.bookBD = BookBD_static.iniciaBD();
-        this.approvingChain = new availableCheck().setNext(new advertCheck()).setNext(new maxBookCheck());
     }
 
     public void registrarAluno(string name, string cod, int idade) {
@@ -73,6 +91,16 @@ public class Facade {
     public void buscaLivroGenre (string genre) {
         ConcMediator mediator = instanciaBuscaLivro();
         mediator.buscaLivro("Genre", genre);
+    }
+
+    public void emprestaLivro (int codLivro, string codUser) {
+        ConcMediator mediator = instanciaEmprestaLivro();
+        mediator.emprestaLivro(codLivro, codUser);
+    }
+
+    public void devolveLivro (int codLivro, string codUser) {
+        ConcMediator mediator = instanciaDevolveLivro();
+        mediator.devolveLivro(codLivro, codUser);
     }
 
 }

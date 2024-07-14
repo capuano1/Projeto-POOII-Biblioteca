@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public interface IHandler {
     IHandler setNext (IHandler handler);
-    bool handle(Book livro, IUser user);
+    int handle(Book livro, IUser user);
 }
 
 public abstract class abstractHandler : IHandler {
@@ -18,15 +18,15 @@ public abstract class abstractHandler : IHandler {
         return handler;
     }
 
-    public abstract bool handle(Book livro, IUser user);
+    public abstract int handle(Book livro, IUser user);
 }
 
 public class availableCheck : abstractHandler {
 
-    public override bool handle(Book livro, IUser user) {
-        if (livro.getCopAvailable() < 1) return false;
+    public override int handle(Book livro, IUser user) {
+        if (livro.getCopAvailable() < 1) return 1;
         if (this.next != null) return this.next.handle(livro, user);
-        return true;
+        return 0;
     }
 }
 
@@ -42,10 +42,10 @@ public class advertCheck : abstractHandler {
         this.maxAdvert = advert;
     }
 
-    public override bool handle(Book livro, IUser user) {
-        if (user.getAdvert() > this.maxAdvert) return false;
+    public override int handle(Book livro, IUser user) {
+        if (user.getAdvert() >= this.maxAdvert) return 2;
         if (this.next != null) return this.next.handle(livro, user);
-        return true;
+        return 0;
     }
 }
 
@@ -61,9 +61,9 @@ public class maxBookCheck : abstractHandler {
         this.maxBook = maxBook;
     }
 
-    public override bool handle(Book livro, IUser user) {
-        if (user.getNumLivros() >= this.maxBook) return false;
+    public override int handle(Book livro, IUser user) {
+        if (user.getNumLivros() >= this.maxBook) return 3;
         if (this.next != null) return this.next.handle(livro, user);
-        return true;
+        return 0;
     }
 }

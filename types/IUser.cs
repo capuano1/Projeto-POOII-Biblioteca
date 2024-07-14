@@ -31,13 +31,20 @@ public abstract class IUser
     public int getAdvert() { return this.advert; }
     public void giveAdvert() { this.advert += 1; }
     public int getNumLivros() { return this.numLivrosEmprestados; }
-    public void setNumLivros(int numNovo) { this.numLivrosEmprestados = numNovo; }
     public string getTipoUser() { return this.tipoUser; }
     public List<BookReg> getHistory() { return this.history; }
-    public void empresta(BookReg reg) { this.history.Add(reg); }
-    public void devolve(Book livro) { 
+    public void empresta(BookReg reg) { 
+        this.history.Add(reg);
+        this.numLivrosEmprestados++;
+    }
+    public int devolve(Book livro) { 
         BookReg? aux = this.history.Find(x => x.getLivro() == livro && x.getDevolvido == null);
-        if (aux != null) aux.setDevolvido();
+        if (aux != null) {
+            aux.setDevolvido();
+            this.numLivrosEmprestados--;
+            return 0;
+        }
+        return -3;
     }
 
 }
