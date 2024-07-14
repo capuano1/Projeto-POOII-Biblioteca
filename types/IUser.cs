@@ -12,6 +12,7 @@ public abstract class IUser
     private int numLivrosEmprestados;
     private int advert;
     private string tipoUser;
+    private List<BookReg> history;
 
     public IUser (string nome, string codg, int age, string tipo) {
         this.name = nome;
@@ -20,6 +21,7 @@ public abstract class IUser
         this.advert = 0;
         this.numLivrosEmprestados = 0;
         this.tipoUser = tipo;
+        this.history = new List<BookReg>();
     }
 
     public string getName() { return this.name; }
@@ -30,5 +32,11 @@ public abstract class IUser
     public int getNumLivros() { return this.numLivrosEmprestados; }
     public void setNumLivros(int numNovo) { this.numLivrosEmprestados = numNovo; }
     public string getTipoUser() { return this.tipoUser; }
+    public List<BookReg> getHistory() { return this.history; }
+    public void empresta(BookReg reg) { this.history.Add(reg); }
+    public void devolve(Book livro) { 
+        BookReg? aux = this.history.Find(x => x.getLivro() == livro && x.getDevolvido == null);
+        if (aux != null) aux.setDevolvido();
+    }
 
 }

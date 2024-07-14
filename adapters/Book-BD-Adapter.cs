@@ -15,7 +15,7 @@ public interface BBD {
     public void empresta(int cod);
     public void devolve(int cod);
     public List<Book> getLivroNome(string name);
-    public Book? getLivroCod(int cod);
+    public List<Book> getLivroCod(int cod);
     public List<Book> getLivrosAutor(string author);
     public List<Book> getLivrosGenre(string genre);
 

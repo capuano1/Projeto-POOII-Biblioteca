@@ -19,6 +19,7 @@ public class BookBD_static : BaseMedClass, BBD
     }
 
     private void incrementaMaiorCod() { maiorCod++; }
+    private Book? getLivro(int cod) { return this.BookList.Find(liv => liv.getCod() == cod);}
     
     public static BookBD_static iniciaBD() {
         if (bookBD == null) bookBD = new BookBD_static();
@@ -26,22 +27,22 @@ public class BookBD_static : BaseMedClass, BBD
     }
     
     public void copiaPerdidaLivro(int cod, int copias) {
-        Book? aux = getLivroCod(cod);
+        Book? aux = getLivro(cod);
         if (aux != null) aux.setCopOwned(aux.getCopOwned() - copias);
     }
 
     public void devolve(int cod) {
-        Book? aux = getLivroCod(cod);
+        Book? aux = getLivro(cod);
         if (aux != null) aux.devolve();
     }
 
     public void eliminaLivro(int cod) {
-        Book? aux = getLivroCod(cod);
+        Book? aux = getLivro(cod);
         if (aux != null) this.BookList.Remove(aux);
     }
 
     public void empresta(int cod) {
-        Book? aux = getLivroCod(cod);
+        Book? aux = getLivro(cod);
         if (aux != null) aux.empresta();
     }
 
@@ -49,8 +50,11 @@ public class BookBD_static : BaseMedClass, BBD
         return this.BookList.FindAll(liv => liv.getName() == name);
     }
 
-    public Book? getLivroCod(int cod) {
-        return BookList.Find(liv => liv.getCod() == cod);
+    public List<Book> getLivroCod(int cod) {
+        List<Book> aux = new List<Book>();
+        Book? aux2 = BookList.Find(liv => liv.getCod() == cod);
+        if (aux2 != null) aux.Add(aux2);
+        return aux;
     }
 
     public List<Book> getLivrosAutor(string author) {
@@ -62,7 +66,7 @@ public class BookBD_static : BaseMedClass, BBD
     }
 
     public void novaCopiaLivro(int cod, int copias) {
-        Book? aux = getLivroCod(cod);
+        Book? aux = getLivro(cod);
         if (aux != null) aux.setCopOwned(aux.getCopOwned() + copias);
     }
 

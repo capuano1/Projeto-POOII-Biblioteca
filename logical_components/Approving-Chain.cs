@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public interface IHandler {
     IHandler setNext (IHandler handler);
-    bool handle(IUser user);
+    bool handle(Book livro, IUser user);
 }
 
 public abstract class abstractHandler : IHandler {
@@ -18,20 +18,17 @@ public abstract class abstractHandler : IHandler {
         return handler;
     }
 
-    public abstract bool handle(IUser user);
+    public abstract bool handle(Book livro, IUser user);
 }
 
-/* CHECAR SE O LIVRO ESTÁ DISPONÍVEL, OU SEJA, CÓPIAS EMPRESTADAS < CÓPIAS DISPONÍVEIS
-PARA FAZER ISSO, PRECISO ANTES CRIAR TODO O SISTEMA DOS LIVROS (CLASSE LIVROS, BD, ADAPTER, ETC.)
 public class availableCheck : abstractHandler {
 
-    public override bool handle(IUser user) {
-        if (user.getAdvert() > this.maxAdvert) return false;
-        if (this.next != null) return this.next.handle(user);
+    public override bool handle(Book livro, IUser user) {
+        if (livro.getCopAvailable() < 1) return false;
+        if (this.next != null) return this.next.handle(livro, user);
         return true;
     }
 }
-*/
 
 public class advertCheck : abstractHandler {
 
@@ -45,9 +42,9 @@ public class advertCheck : abstractHandler {
         this.maxAdvert = advert;
     }
 
-    public override bool handle(IUser user) {
+    public override bool handle(Book livro, IUser user) {
         if (user.getAdvert() > this.maxAdvert) return false;
-        if (this.next != null) return this.next.handle(user);
+        if (this.next != null) return this.next.handle(livro, user);
         return true;
     }
 }
@@ -64,9 +61,9 @@ public class maxBookCheck : abstractHandler {
         this.maxBook = maxBook;
     }
 
-    public override bool handle(IUser user) {
+    public override bool handle(Book livro, IUser user) {
         if (user.getNumLivros() >= this.maxBook) return false;
-        if (this.next != null) return this.next.handle(user);
+        if (this.next != null) return this.next.handle(livro, user);
         return true;
     }
 }

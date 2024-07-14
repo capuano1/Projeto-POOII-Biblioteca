@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 public class Facade {
     
     private UBD userBD;
+    private BBD bookBD;
     private IHandler approvingChain;
+
+    private ConcMediator instanciaBuscaLivro() {
+        return new ConcMediator(bookBD, null, new BuscaLivro());
+    }
 
 //Criar instancia do approving chain, fazendo new da primeira checagem e criando as outras.
 
     public Facade() {
         this.userBD = UserBD_static.iniciaBD();
+        this.bookBD = BookBD_static.iniciaBD();
     }
 
     public void registrarAluno(string name, string cod, int idade) {
@@ -49,4 +55,25 @@ public class Facade {
             Console.WriteLine("Usuário não encontrado.\n");
         }
     }
+
+    public void buscaLivroCod (int cod) {
+        ConcMediator mediator = instanciaBuscaLivro();
+        mediator.buscaLivro("Código", cod.ToString());
+    }
+
+    public void buscaLivroNome (string name) {
+        ConcMediator mediator = instanciaBuscaLivro();
+        mediator.buscaLivro("Nome", name);
+    }
+
+    public void buscaLivroAuthor (string author) {
+        ConcMediator mediator = instanciaBuscaLivro();
+        mediator.buscaLivro("Autor", author);
+    }
+
+    public void buscaLivroGenre (string genre) {
+        ConcMediator mediator = instanciaBuscaLivro();
+        mediator.buscaLivro("Genre", genre);
+    }
+
 }
