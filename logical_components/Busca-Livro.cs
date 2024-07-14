@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 public class BuscaLivro : BaseMedClass {
 
-
     private void imprimeLivros (List<Book> list) {
+        if (list == null || list.Count == 0) Console.WriteLine("Nenhum livro encontrado");
         foreach (Book liv in list) {
             Console.WriteLine("Nome: " + liv.getName());
             Console.WriteLine("Código: " + liv.getCod());
@@ -27,6 +27,7 @@ public class BuscaLivro : BaseMedClass {
                 }
             }
             Console.WriteLine("Cópias no acervo | Cópias disponíveis: " + liv.getCopOwned() + " | " + liv.getCopAvailable());
+            Console.WriteLine();
         }
     }
 

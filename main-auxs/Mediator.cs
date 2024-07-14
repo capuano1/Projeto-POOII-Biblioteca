@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 public interface IMediator {
     public List<Book> buscaLivro (string type, string mes);
+    public IUser? buscaUser (string cod);
     void Notify (object objA, object objB);
 }
 
@@ -36,6 +37,10 @@ public class ConcMediator : IMediator {
                 return BookBD.getLivrosGenre(mes);
         }
     return null;
+    }
+
+    public IUser? buscaUser (string cod) {
+        return UserBD.buscaUser(cod);
     }
 
     public void Notify (object objA, object objB) {}

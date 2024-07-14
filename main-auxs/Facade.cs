@@ -14,11 +14,15 @@ public class Facade {
         return new ConcMediator(bookBD, null, new BuscaLivro());
     }
 
-//Criar instancia do approving chain, fazendo new da primeira checagem e criando as outras.
+    private ConcMediator instanciaBuscaUser() {
+        return new ConcMediator(null, userBD, new BuscaUser());
+    }
+
 
     public Facade() {
         this.userBD = UserBD_static.iniciaBD();
         this.bookBD = BookBD_static.iniciaBD();
+        this.approvingChain = new availableCheck().setNext(new advertCheck()).setNext(new maxBookCheck());
     }
 
     public void registrarAluno(string name, string cod, int idade) {
@@ -32,13 +36,8 @@ public class Facade {
     }
 
     public void buscarUser(string codigo) {
-        var user = userBD.buscaUser(codigo);
-        if(user != null){ 
-            Console.WriteLine($"Nome: {user.getName()}\nIdade: {user.getIdade()}\nTipo de usuário: {user.getTipoUser()}");
-        }
-        else{
-            Console.WriteLine("Usuário não encontrado.");
-        }
+        ConcMediator mediator = instanciaBuscaUser();
+        mediator.buscaUser(codigo);
     }
 
     public bool codExiste(string codigo) {
