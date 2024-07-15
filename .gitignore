@@ -1,6 +1,6 @@
-/.vs
-/bin
-/obj
+**/.vs/
+**/bin/
+**/obj/
 *.cache
 Assembly
 obj/Debug/net8.0/Biblioteca.AssemblyInfo.cs
