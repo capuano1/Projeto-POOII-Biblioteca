@@ -16,7 +16,7 @@ public class Program
         Facade facade = new Facade();
 
         var input = 0;
-        while (input != 7)
+        while (input != 6)
         {
             Thread.Sleep(1500);
 
@@ -134,7 +134,7 @@ public class Program
 
                 case 4: // Opções de livro
                     var b = 0;
-                    while(b != 8){
+                    while(b != 9){
                         Thread.Sleep(1500);
                         Console.WriteLine();        
                         Console.WriteLine(  "1 - Buscar livro.\n" +
@@ -144,7 +144,8 @@ public class Program
                                             "5 - Remover gênero de um livro.\n"+
                                             "6 - Adicionar subgênero à um livro.\n"+
                                             "7 - Remover subgênero de um livro.\n"+
-                                            "8 - Voltar.\n");
+                                            "8 - Alterar o número de cópias na biblioteca.\n"+
+                                            "9 - Voltar.\n");
 
                         b = int.Parse(Console.ReadLine().ToString());
                         Console.WriteLine();
@@ -271,7 +272,15 @@ public class Program
                                 facade.removeSubGenero(sco,gener,sgen);
                                 break;
 
-                            case 8: // Voltar
+                            case 8: // Alterar o número de cópias na biblioteca
+                                Console.WriteLine("Digite o código do livro que você deseja alterar o número de cópias:");
+                                var livreto = int.Parse(Console.ReadLine().ToString());
+                                Console.WriteLine("Qual o novo número de copias do livro?");
+                                var copias = int.Parse(Console.ReadLine().ToString());
+                                facade.mudaNumeroCopias(livreto,copias);
+                                break;
+
+                            case 9:
                                 break;
 
                         }
@@ -285,8 +294,7 @@ public class Program
                         Console.WriteLine();
                          Console.WriteLine( "1 - Configurar o número máximo de advertências.\n" +
                                             "2 - Configurar o número máximo de livros emprestados.\n" +
-                                            "3 - Alterar o número de cópias na biblioteca.\n"+
-                                            "4 - Voltar");
+                                            "3 - Voltar");
                         c = int.Parse(Console.ReadLine().ToString());
                         Console.WriteLine();
 
@@ -303,14 +311,7 @@ public class Program
                                 Console.WriteLine();
                                 facade.configMaxAdvert(nBooks);
                                 break;
-                            case 3: // Alterar o número de cópias na biblioteca de um certo livro
-                                Console.WriteLine("Digite o código do livro que você deseja alterar o número de cópias:");
-                                var livreto = int.Parse(Console.ReadLine().ToString());
-                                Console.WriteLine("Qual o novo número de copias do livro?");
-                                var copias = int.Parse(Console.ReadLine().ToString());
-                                facade.mudaNumeroCopias(livreto,copias);
-                                break;
-                            case 4: // Voltar
+                            case 3: // Voltar
                                 break;
 
                         }
