@@ -120,6 +120,7 @@ public class ConcMediator : IMediator {
 
     public void registraLivro(String nome, List<String> authors){
         BookBD.registraLivro(nome,authors);
+        notifyAllUsers("Novo livro disponível: " + nome);
     }   
 }
 

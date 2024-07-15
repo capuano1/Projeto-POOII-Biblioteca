@@ -12,19 +12,17 @@ public class BuscaLivro : BaseMedClass {
             Console.WriteLine("Nome: " + liv.getName());
             Console.WriteLine("Código: " + liv.getCod());
             Console.WriteLine("Autores: ");
-            foreach (string aut in liv.getAuthors()) Console.Write(aut + " ");
-            if (liv.getLaunchDate != null) {
-                DateTime launch = DateTime.MinValue;
-                launch = liv.getLaunchDate() ?? DateTime.MinValue;
-                Console.WriteLine("Data de lançamento: " + launch.ToString("dd/MM/yyyy"));
-            }
-            Console.WriteLine("Gêneros: ");
+            foreach (string aut in liv.getAuthors()) Console.Write(aut + " | ");
+            Console.WriteLine("\nGêneros: ");
+            HashSet<string>[] aux = liv.getSubgenres();
+            int i = 0;
             foreach (string gen in liv.getGenres()){
-                int i = 0;
-                Console.WriteLine(gen + ": ");
-                foreach(string subgen in liv.getSubgenres()[i]) {
-                    Console.Write(subgen + " ");
+                Console.Write(gen + " - ");
+                foreach(string subgen in aux[i]) {
+                    Console.Write(subgen + " | ");
                 }
+                i++;
+                Console.WriteLine();
             }
             Console.WriteLine("Cópias no acervo | Cópias disponíveis: " + liv.getCopOwned() + " | " + liv.getCopAvailable());
             Console.WriteLine();
