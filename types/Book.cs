@@ -10,7 +10,6 @@ public class Book {
     private string name;
     private int cod;
     private List<string> authors;
-    private DateTime? launchDate;
     private List<string> genres;
     private List<HashSet<string>> subgenres;
 
@@ -28,8 +27,6 @@ public class Book {
     public string getName() { return this.name; }
     public int getCod() { return this.cod; }
     public List<string> getAuthors() { return this.authors; }
-    public DateTime? getLaunchDate() { return this.launchDate; }
-    public void setLaunchDate(DateTime time) { this.launchDate = time; }
     public List<string> getGenres() { return this.genres; }
     public List<HashSet<string>> getSubgenres() { return this.subgenres; }
     public void addGenre(string gen) { this.genres.Add(gen); }
