@@ -204,15 +204,15 @@ public class Program
                                 string titulo = Console.ReadLine().ToString();
                                 Console.WriteLine();
 
-                                while(x != "N"){
-                                    Console.WriteLine("Digite o autor que deseja adicionar: ");
+                                while(x != "n"){
+                                    Console.Write("Digite o autor que deseja adicionar: ");
                                     aux = Console.ReadLine().ToString();
                                     Console.WriteLine();
                                     
                                     autores.Add(aux);
 
-                                    Console.WriteLine("Deseja adicionar mais autores? (S/N)\n");
-                                    x = Console.ReadLine().ToString();
+                                    Console.WriteLine("Deseja adicionar mais autores? (S/N)");
+                                    x = Console.ReadLine().ToString().ToLower();
                                     Console.WriteLine();
                                     
                                 }
@@ -221,19 +221,20 @@ public class Program
                                 break;
 
                             case 3: // Remover livro
-                                Console.WriteLine("Digite o código do livro que será removido: ");
+                                Console.Write("Digite o código do livro que será removido: ");
                                 int codigo = int.Parse(Console.ReadLine().ToString());
-                                Console.WriteLine();
-
+                                
+                                
                                 facade.removeLivro(codigo);
+                                Console.WriteLine("Livro removido com sucesso!\n");
                                 break;
 
                             case 4: // Adicionar gênero de livro
-                                Console.WriteLine("Digite o código do livro que você vai adicionar o gênero: ");
+                                Console.Write("Digite o código do livro que você vai adicionar o gênero: ");
                                 int code = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine();
 
-                                Console.WriteLine("Digite o gênero que será inserido: ");
+                                Console.Write("Digite o gênero que será inserido: ");
                                 var genre = Console.ReadLine().ToString();
                                 Console.WriteLine();
 
@@ -241,11 +242,11 @@ public class Program
                                 break;
 
                             case 5: // Remover gênero de livro
-                                Console.WriteLine("Digite o código do livro que você vai remover o gênero: ");
+                                Console.Write("Digite o código do livro que você vai remover o gênero: ");
                                 int codi = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine();
 
-                                Console.WriteLine("Digite o gênero que será removido: ");
+                                Console.Write("Digite o gênero que será removido: ");
                                 var genr = Console.ReadLine().ToString();
                                 Console.WriteLine();
 
@@ -253,27 +254,27 @@ public class Program
                                 break;
 
                             case 6: // Adicionar subgênero de livro
-                                Console.WriteLine("Digite o código do livro que você vai adicionar o subgênero: ");
+                                Console.Write("Digite o código do livro que você vai adicionar o subgênero: ");
                                 int scode = int.Parse(Console.ReadLine().ToString());
-                                Console.WriteLine("Digite o gênero em que será inserido subgênero: ");
+                                Console.Write("Digite o gênero em que será inserido subgênero: ");
                                 var ger = Console.ReadLine().ToString();
-                                Console.WriteLine("Digite o subgênero que será inserido: ");
+                                Console.Write("Digite o subgênero que será inserido: ");
                                 var sgenre = Console.ReadLine().ToString();
                                 facade.adicionaSubGenero(scode,ger,sgenre);
                                 break;
 
                             case 7: // Remover subgênero de livro
-                                Console.WriteLine("Digite o código do livro que você vai remover o subgênero: ");
+                                Console.Write("Digite o código do livro que você vai remover o subgênero: ");
                                 int sco = int.Parse(Console.ReadLine().ToString());
-                                Console.WriteLine("Digite o gênero que será removido o subgênero: ");
+                                Console.Write("Digite o gênero que será removido o subgênero: ");
                                 var gener = Console.ReadLine().ToString();
-                                Console.WriteLine("Digite o subgênero que será removido: ");
+                                Console.Write("Digite o subgênero que será removido: ");
                                 var sgen = Console.ReadLine().ToString();
                                 facade.removeSubGenero(sco,gener,sgen);
                                 break;
 
                             case 8: // Alterar o número de cópias na biblioteca
-                                Console.WriteLine("Digite o código do livro que você deseja alterar o número de cópias:");
+                                Console.Write("Digite o código do livro que você deseja alterar o número de cópias: ");
                                 var livreto = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine("Qual o novo número de copias do livro?");
                                 var copias = int.Parse(Console.ReadLine().ToString());
@@ -300,16 +301,18 @@ public class Program
 
                         switch(c){
                             case 1: // Configura maximo de advertências
-                                Console.WriteLine("Digite o número máximo de advertências que cada aluno pode receber:");
+                                Console.Write("Digite o número máximo de advertências que cada aluno pode receber: ");
                                 int nAdvert = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine();
                                 facade.configMaxAdvert(nAdvert);
+                                Console.WriteLine("Número máximo de advertências alterado!\n");
                                 break;
                             case 2: // Configura maximo de livros emprestados
-                                Console.WriteLine("Digite o número máximo de livros que cada aluno pode emprestar:");
+                                Console.Write("Digite o número máximo de livros que cada aluno pode emprestar:");
                                 int nBooks = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine();
-                                facade.configMaxAdvert(nBooks);
+                                facade.configMaxBook(nBooks);
+                                Console.WriteLine("Número máximo de livros que pode emprestar alterado!\n");
                                 break;
                             case 3: // Voltar
                                 break;

@@ -92,6 +92,7 @@ public class Facade {
     public void registraLivro(String nome, List<String> authors){
         ConcMediator med = new ConcMediator(this.bookBD, this.userBD, null);
         med.registraLivro(nome,authors);
+        Console.WriteLine("\nLivro adicionado com sucesso!");
     }
 
     public void removeLivro(int codigo){

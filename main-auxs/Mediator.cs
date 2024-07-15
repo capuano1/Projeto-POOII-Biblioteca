@@ -86,6 +86,7 @@ public class ConcMediator : IMediator {
 
         livro.empresta();
         user.empresta(new BookReg(livro));
+        Console.WriteLine("Livro emprestado.");
         return 0;
     }
 
@@ -115,13 +116,14 @@ public class ConcMediator : IMediator {
     public void notifyAllUsers (string message) {
         List<IUser> users = this.UserBD.getUsers();
         foreach (IUser usuario in users) {
+            Console.Write($"Nova mensagem para: {usuario.getName()}. ");
             usuario.notify(message);
         }
     }
 
     public void registraLivro(String nome, List<String> authors){
         BookBD.registraLivro(nome,authors);
-        notifyAllUsers("Novo livro disponível: " + nome);
+        notifyAllUsers("Novo livro disponível: " + nome + " Código do livro: " + BookBD.getLivroNome(nome)[0].getCod());
     }   
 }
 
