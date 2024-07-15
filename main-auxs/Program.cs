@@ -25,10 +25,10 @@ public class Program
             Console.WriteLine(  "1 - Registrar usuário.\n" +
                                 "2 - Remover usuário.\n" +
                                 "3 - Buscar usuário\n" +
-                                "4 - Buscar livro\n" +
-                                "5 - Emprestar livro\n" +
-                                "6 - Devolver livro\n" +
-                                "7 - Sair\n");
+                                "4 - \n" +
+                                "5 - Buscar livro\n" +
+                                "6 - Emprestar livro\n" +
+                                "7 - Devolver livro\n");
             
             input = int.Parse(Console.ReadLine().ToString());
             Console.WriteLine();
@@ -86,16 +86,19 @@ public class Program
                     facade.buscarUser(code);
                     break;
 
-                case 4: // buscarLivro
+                case 4: // registrarLivro
+                        facade.registrarLivro();
+                    break;
+
+                case 5: // buscarLivro
 
                     break;
 
-                case 5: // emprestarLivro
-
-                    break;
-
-                case 6: // devolverLivro
+                case 6: // emprestarLivro
                     break;        
+                
+                case 7: // deolverLivro
+                    break;
             }
 
         }

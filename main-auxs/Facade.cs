@@ -42,7 +42,6 @@ public class Facade {
         this.userBD = UserBD_static.iniciaBD();
         this.bookBD = BookBD_static.iniciaBD();
     }
-
     public void registrarAluno(string name, string cod, int idade) {
         userBD.registraUsuario(new userEstudante(name, cod, idade));
     }
@@ -52,17 +51,14 @@ public class Facade {
     public void registrarProfessor(string name, string cod, int idade) {
         userBD.registraUsuario(new userProfessor(name, cod, idade));
     }
-
     public void buscarUser(string codigo) {
         ConcMediator mediator = instanciaBuscaUser();
         mediator.buscaUser(codigo);
     }
-
     public bool codExiste(string codigo) {
         if (userBD.buscaUser(codigo) != null) return true;
         return false;
     }
-
     public void removerUser(string codigo){
         var user = userBD.buscaUser(codigo);
         if(user != null){
@@ -113,4 +109,7 @@ public class Facade {
         mediator.changeConfig("maxBook", value);
     }
 
+    public void registraLivro(){
+        //Book b = new Book()
+    }
 }
