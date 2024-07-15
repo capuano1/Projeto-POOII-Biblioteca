@@ -285,7 +285,8 @@ public class Program
                         Console.WriteLine();
                          Console.WriteLine( "1 - Configurar o número máximo de advertências.\n" +
                                             "2 - Configurar o número máximo de livros emprestados.\n" +
-                                            "3 - Voltar.\n");
+                                            "3 - Alterar o número de cópias na biblioteca.\n"+
+                                            "4 - Voltar");
                         c = int.Parse(Console.ReadLine().ToString());
                         Console.WriteLine();
 
@@ -296,13 +297,20 @@ public class Program
                                 Console.WriteLine();
                                 facade.configMaxAdvert(nAdvert);
                                 break;
-                            case 2:// Configura maximo de livros emprestados
+                            case 2: // Configura maximo de livros emprestados
                                 Console.WriteLine("Digite o número máximo de livros que cada aluno pode emprestar:");
                                 int nBooks = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine();
                                 facade.configMaxAdvert(nBooks);
                                 break;
-                            case 3: // Voltar
+                            case 3: // Alterar o número de cópias na biblioteca de um certo livro
+                                Console.WriteLine("Digite o código do livro que você deseja alterar o número de cópias:");
+                                var livreto = int.Parse(Console.ReadLine().ToString());
+                                Console.WriteLine("Qual o novo número de copias do livro?");
+                                var copias = int.Parse(Console.ReadLine().ToString());
+                                facade.mudaNumeroCopias(livreto,copias);
+                                break;
+                            case 4: // Voltar
                                 break;
 
                         }
