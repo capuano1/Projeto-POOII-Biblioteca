@@ -10,32 +10,32 @@ public class Facade {
     
     private UBD userBD;
     private BBD bookBD;
-    private ConcMediator instanciaBuscaLivro() {
+    private BuscaLivro instanciaBuscaLivro() {
         BuscaLivro busc = new BuscaLivro();
         ConcMediator med = new ConcMediator(bookBD, null, busc);
         busc.setMediator(med);
-        return med;
+        return busc;
     }
 
-    private ConcMediator instanciaBuscaUser() {
+    private BuscaUser instanciaBuscaUser() {
         BuscaUser busc = new BuscaUser();
-        ConcMediator med = new ConcMediator(bookBD, null, busc);
+        ConcMediator med = new ConcMediator(null, userBD, busc);
         busc.setMediator(med);
-        return med;
+        return busc;
     }
 
-    private ConcMediator instanciaEmprestaLivro() {
+    private EmprestaLivro instanciaEmprestaLivro() {
         EmprestaLivro emp = new EmprestaLivro();
-        ConcMediator med = new ConcMediator(bookBD, null, emp);
+        ConcMediator med = new ConcMediator(bookBD, userBD, emp);
         emp.setMediator(med);
-        return med;
+        return emp;
     }
 
-    private ConcMediator instanciaDevolveLivro() {
+    private DevolveLivro instanciaDevolveLivro() {
         DevolveLivro dev = new DevolveLivro();
-        ConcMediator med = new ConcMediator(bookBD, null, dev);
+        ConcMediator med = new ConcMediator(bookBD, userBD, dev);
         dev.setMediator(med);
-        return med;
+        return dev;
     }
 
     public Facade() {
@@ -52,8 +52,8 @@ public class Facade {
         userBD.registraUsuario(new userProfessor(name, cod, idade));
     }
     public void buscarUser(string codigo) {
-        ConcMediator mediator = instanciaBuscaUser();
-        mediator.buscaUser(codigo);
+        BuscaUser buscar = instanciaBuscaUser();
+        buscar.buscarUser(codigo);
     }
     public bool codExiste(string codigo) {
         if (userBD.buscaUser(codigo) != null) return true;
@@ -70,27 +70,27 @@ public class Facade {
     }
 
     public void buscaLivroCod (int cod) {
-        ConcMediator mediator = instanciaBuscaLivro();
-        mediator.buscaLivro("Código", cod.ToString());
+        BuscaLivro buscar = instanciaBuscaLivro();
+        buscar.buscaLivroCod(cod);
     }
 
     public void buscaLivroNome (string name) {
-        ConcMediator mediator = instanciaBuscaLivro();
-        mediator.buscaLivro("Nome", name);
+        BuscaLivro buscar = instanciaBuscaLivro();
+        buscar.buscaLivroNome(name);
     }
 
     public void buscaLivroAuthor (string author) {
-        ConcMediator mediator = instanciaBuscaLivro();
-        mediator.buscaLivro("Autor", author);
+        BuscaLivro buscar = instanciaBuscaLivro();
+        buscar.buscaLivroAuthor(author);
     }
 
     public void buscaLivroGenre (string genre) {
-        ConcMediator mediator = instanciaBuscaLivro();
-        mediator.buscaLivro("Genre", genre);
+        BuscaLivro buscar = instanciaBuscaLivro();
+        buscar.buscaLivroGenre(genre);
     }
 
     public void registraLivro(String nome, List<String> authors){
-        ConcMediator med = new ConcMediator(bookBD, null, null);
+        ConcMediator med = new ConcMediator(this.bookBD, this.userBD, null);
         med.registraLivro(nome,authors);
     }
 
@@ -98,13 +98,13 @@ public class Facade {
         bookBD.eliminaLivro(codigo);
     }
     public void emprestaLivro (int codLivro, string codUser) {
-        ConcMediator mediator = instanciaEmprestaLivro();
-        mediator.emprestaLivro(codLivro, codUser);
+        EmprestaLivro emp = instanciaEmprestaLivro();
+        emp.emprestarLivro(codLivro, codUser);
     }
 
     public void devolveLivro (int codLivro, string codUser) {
-        ConcMediator mediator = instanciaDevolveLivro();
-        mediator.devolveLivro(codLivro, codUser);
+        DevolveLivro dev = instanciaDevolveLivro();
+        dev.devolverLivro(codLivro, codUser);
     }
 
     public void adicionaGenero(int codigo, String genero){

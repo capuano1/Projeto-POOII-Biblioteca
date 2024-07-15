@@ -75,11 +75,7 @@ public class BookBD_static : BaseMedClass, BBD
         incrementaMaiorCod();
         Book aux = new Book(bname, authorl, maiorCod);
         this.BookList.Add(aux);
-        this.mediator.notifyAllUsers("Novo livro disponível: " + bname);
-    }
-
-    private void callNotifier(IUser user, string message) {
-        this.mediator.notifyUser(user, message);
+        //this.mediator.notifyAllUsers("Novo livro disponível: " + bname);
     }
 
 }

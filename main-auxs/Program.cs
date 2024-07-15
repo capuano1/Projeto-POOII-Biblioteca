@@ -181,7 +181,7 @@ public class Program
                                         var author = Console.ReadLine().ToString();
                                         Console.WriteLine();
 
-                                        facade.buscaLivroNome(author);
+                                        facade.buscaLivroAuthor(author);
                                         break;
 
                                     case 4: 
@@ -189,22 +189,22 @@ public class Program
                                         var gene = Console.ReadLine().ToString();
                                         Console.WriteLine();
 
-                                        facade.buscaLivroNome(gene);
+                                        facade.buscaLivroGenre(gene);
                                         break;
                                 }
                                 break;
 
                             case 2: // Adicionar livro
                                 var x = "S";
-                                String aux;
-                                List<String> autores = new List<String>();
+                                string aux;
+                                List<string> autores = new List<string>();
 
                                 Console.Write("Digite o nome do livro que deseja adicionar: ");
-                                String titulo = Console.ReadLine().ToString();
+                                string titulo = Console.ReadLine().ToString();
                                 Console.WriteLine();
 
                                 while(x != "N"){
-                                    Console.WriteLine("Digite o gênero que deseja adicionar: ");
+                                    Console.WriteLine("Digite o autor que deseja adicionar: ");
                                     aux = Console.ReadLine().ToString();
                                     Console.WriteLine();
                                     
@@ -256,7 +256,7 @@ public class Program
                                 int scode = int.Parse(Console.ReadLine().ToString());
                                 Console.WriteLine("Digite o gênero em que será inserido subgênero: ");
                                 var ger = Console.ReadLine().ToString();
-                                Console.WriteLine("Digite o subgênero que será removido: ");
+                                Console.WriteLine("Digite o subgênero que será inserido: ");
                                 var sgenre = Console.ReadLine().ToString();
                                 facade.adicionaSubGenero(scode,ger,sgenre);
                                 break;
