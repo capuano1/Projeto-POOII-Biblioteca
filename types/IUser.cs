@@ -38,7 +38,7 @@ public abstract class IUser
         this.numLivrosEmprestados++;
     }
     public int devolve(Book livro) { 
-        BookReg? aux = this.history.Find(x => x.getLivro() == livro && x.getDevolvido == null);
+        BookReg? aux = this.history.Find(x => x.getLivro() == livro && x.getDevolvido() == null);
         if (aux != null) {
             aux.setDevolvido();
             this.numLivrosEmprestados--;

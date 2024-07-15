@@ -18,9 +18,6 @@ public class EmprestaLivro : BaseMedClass {
             case 0:
                 Console.WriteLine("Sucesso!");
                 break;
-            case 1:
-                Console.WriteLine("Livro indisponível!");
-                break;
             case 2:
                 Console.WriteLine("Usuário com limite de advertências!");
                 break;

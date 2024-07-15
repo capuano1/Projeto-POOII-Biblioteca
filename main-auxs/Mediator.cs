@@ -64,7 +64,8 @@ public class ConcMediator : IMediator {
     }
 
     public int chainCheck (Book livro, IUser user) {
-        approvingChain = new availableCheck().setNext(new advertCheck(config.getMaxAdvert())).setNext(new maxBookCheck(config.getMaxBook()));
+        approvingChain = new availableCheck();
+        approvingChain.setNext(new advertCheck(config.getMaxAdvert())).setNext(new maxBookCheck(config.getMaxBook()));
         return approvingChain.handle(livro, user);
     }
 
