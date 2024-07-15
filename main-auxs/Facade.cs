@@ -134,4 +134,8 @@ public class Facade {
         mediator.changeConfig("maxBook", value);
     }
 
+    public void mudaNumeroCopias(int codLivro, int copias){
+        var livro = bookBD.getLivroCod(codLivro);
+        livro[0].setCopOwned(copias);
+    }
 }
