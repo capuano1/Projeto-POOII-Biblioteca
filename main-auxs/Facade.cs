@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,7 +10,6 @@ public class Facade {
     
     private UBD userBD;
     private BBD bookBD;
-
     private ConcMediator instanciaBuscaLivro() {
         BuscaLivro busc = new BuscaLivro();
         ConcMediator med = new ConcMediator(bookBD, null, busc);
@@ -89,6 +89,14 @@ public class Facade {
         mediator.buscaLivro("Genre", genre);
     }
 
+    public void registraLivro(String nome, List<String> authors){
+        ConcMediator med = new ConcMediator(bookBD, null, null);
+        med.registraLivro(nome,authors);
+    }
+
+    public void removeLivro(int codigo){
+        bookBD.eliminaLivro(codigo);
+    }
     public void emprestaLivro (int codLivro, string codUser) {
         ConcMediator mediator = instanciaEmprestaLivro();
         mediator.emprestaLivro(codLivro, codUser);
@@ -97,6 +105,23 @@ public class Facade {
     public void devolveLivro (int codLivro, string codUser) {
         ConcMediator mediator = instanciaDevolveLivro();
         mediator.devolveLivro(codLivro, codUser);
+    }
+
+    public void adicionaGenero(int codigo, String genero){
+        Book livro = bookBD.getLivroCod(codigo)[0];
+        livro.addGenre(genero);
+    }
+    public void removeGenero(int codigo, String genero){
+        Book livro = bookBD.getLivroCod(codigo)[0];
+        livro.removeGenre(genero);
+    }
+    public void adicionaSubGenero(int codigo, String genero,String subgenero){
+        Book livro = bookBD.getLivroCod(codigo)[0];
+        livro.addSubgenre(genero,subgenero);
+    }
+    public void removeSubGenero(int codigo, String genero,String subgenero){
+        Book livro = bookBD.getLivroCod(codigo)[0];
+        livro.removeSubgenre(genero,subgenero);
     }
 
     public void configMaxAdvert (int value) {
@@ -109,7 +134,4 @@ public class Facade {
         mediator.changeConfig("maxBook", value);
     }
 
-    public void registraLivro(){
-        //Book b = new Book()
-    }
 }

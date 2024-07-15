@@ -13,6 +13,7 @@ public class Book {
     private List<string> genres;
     private List<HashSet<string>> subgenres;
 
+    private List<IUser> reservas;
     private int copOwned;
     private int copEmprestadas;
 
@@ -22,6 +23,8 @@ public class Book {
         this.name = bname;
         this.authors = authorl;
         this.cod = codg;
+        this.copOwned = 3;
+        this.reservas = new List<IUser>();
     }
 
     public string getName() { return this.name; }
@@ -29,6 +32,7 @@ public class Book {
     public List<string> getAuthors() { return this.authors; }
     public List<string> getGenres() { return this.genres; }
     public List<HashSet<string>> getSubgenres() { return this.subgenres; }
+    public List<IUser> getReservas() { return this.reservas; }
     public void addGenre(string gen) { this.genres.Add(gen); }
     public void addSubgenre(string gen, string subgen) { subgenres[genres.FindIndex(ind => ind == gen)].Add(subgen); }
     public void removeGenre(string gen) {
@@ -41,7 +45,7 @@ public class Book {
     public void setCopOwned(int num) { this.copOwned = num; }
     public int getCopEmprestadas() { return this.copEmprestadas; }
     public int getCopAvailable() { return this.copOwned - this.copEmprestadas;}
-    public void empresta() { this.copEmprestadas += 1; }
+    public void empresta() {this.copEmprestadas += 1; }
     public void devolve() { this.copEmprestadas -= 1; }
 
 }

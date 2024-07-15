@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,6 +76,11 @@ public class ConcMediator : IMediator {
         if (buscaUser(codUser) == null) return -2;
         user = buscaUser(codUser);
         int check = chainCheck(livro, user);
+        // como não há livros para emprestar, user reserva o livro
+        if (check == 1){ 
+            livro.getReservas().Add(user);
+            notifyUser(user,"Livro indisponível, usuário adicionado à lista de reservas!");
+        } 
         if (check != 0) return check;
 
         livro.empresta();
@@ -93,6 +99,11 @@ public class ConcMediator : IMediator {
         int result = user.devolve(livro);
         if (result == -3) return -3;
         livro.devolve();
+        if(livro.getCopEmprestadas() == 1){ // quando devolveu, ficou disponivel uma cópia
+            var reservas = livro.getReservas();
+            notifyUser(reservas[0],$"{livro.getName} está disponível para empréstimo!");
+            reservas.Remove(reservas[0]);
+        }
         return 0;
     }
 
@@ -107,6 +118,9 @@ public class ConcMediator : IMediator {
         }
     }
 
+    public void registraLivro(String nome, List<String> authors){
+        BookBD.registraLivro(nome,authors);
+    }   
 }
 
 public class BaseMedClass {
