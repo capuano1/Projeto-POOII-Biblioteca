@@ -16,7 +16,7 @@ public class Program
         Facade facade = new Facade();
 
         var input = 0;
-        while (input != 6)
+        while (input != 7)
         {
             Thread.Sleep(1500);
 
@@ -26,7 +26,8 @@ public class Program
                                 "3 - Opções de Usuário.\n" +
                                 "4 - Opções de Livro\n" +
                                 "5 - Configurações do Sistema.\n" +
-                                "6 - Sair\n");
+                                "6 - Rodar teste do projeto\n"+
+                                "7 - Sair\n");
             
             input = int.Parse(Console.ReadLine().ToString());
             Console.WriteLine();
@@ -65,7 +66,8 @@ public class Program
                         Console.WriteLine(  "1 - Buscar usuário.\n" +
                                             "2 - Adicionar usuário.\n" +
                                             "3 - Remover usuário.\n" +
-                                            "4 - Voltar.\n");
+                                            "4 - Dar advertência à um aluno.\n" + 
+                                            "5 - Voltar.\n");
                         a = int.Parse(Console.ReadLine().ToString());
                         Console.WriteLine();
 
@@ -123,8 +125,13 @@ public class Program
                                 facade.removerUser(cod);
 
                                 break;
+
+                            case 4: // dar advertência
+                                Console.Write("Digite o código do user que levará advertência: ");
+                                facade.aplicarAdvert(Console.ReadLine().ToString());
+                                break;
                             
-                            case 4: // Voltar
+                            case 5: // Voltar
                                 break;
                         }
 
@@ -198,7 +205,7 @@ public class Program
                             case 2: // Adicionar livro
                                 var x = "S";
                                 string aux;
-                                List<string> autores = new List<string>();
+                                List<string> autore = new List<string>();
 
                                 Console.Write("Digite o nome do livro que deseja adicionar: ");
                                 string titulo = Console.ReadLine().ToString();
@@ -209,7 +216,7 @@ public class Program
                                     aux = Console.ReadLine().ToString();
                                     Console.WriteLine();
                                     
-                                    autores.Add(aux);
+                                    autore.Add(aux);
 
                                     Console.WriteLine("Deseja adicionar mais autores? (S/N)");
                                     x = Console.ReadLine().ToString().ToLower();
@@ -217,7 +224,7 @@ public class Program
                                     
                                 }
 
-                                facade.registraLivro(titulo,autores);
+                                facade.registraLivro(titulo,autore);
                                 break;
 
                             case 3: // Remover livro
@@ -322,8 +329,52 @@ public class Program
 
                     break;
 
-                case 6: // sair
-                    break;        
+                case 6: // Rodar teste do projeto
+                    Console.WriteLine("Criados 5 IUsers, 3 alunos, 1 professor e 1 funcionário.\n");
+                    facade.registrarAluno("Evandro","1",23);
+                    facade.registrarAluno("Thiago","2",21);
+                    facade.registrarAluno("Guilherme","3",20);
+                    facade.registrarProfessor("Fábio","4",28);
+                    facade.registrarFuncionario("Lucas","5",27);
+                    
+                    Console.WriteLine("Criado um livro e notificação de novo livro registrado para todos os users.\n");
+                    List<String> autores = ["J.K. Rolling"];
+                    facade.registraLivro("Harry Potter e a Pedra Filosofal",autores);
+
+                    Console.WriteLine("Adicionando gêneros e subgêneros ao livro.\n");
+                    facade.adicionaGenero(1,"Ficção");
+                    facade.adicionaGenero(1,"Aventura");
+                    facade.adicionaSubGenero(1,"Ficção","Magia");
+
+
+                    Console.WriteLine("Busca do livro.\n");
+                    facade.buscaLivroCod(1);
+                    
+                    Console.WriteLine("Busca do user.\n");
+                    facade.buscarUser("4");
+
+                    Console.WriteLine("Empréstimo das 3 copias do livro \"Harry Potter e a Pedra Filosofal\".\n");
+                    facade.emprestaLivro(1,"1");
+                    facade.emprestaLivro(1,"2");
+                    facade.emprestaLivro(1,"3");
+
+                    Console.WriteLine("Como é registrado o user com livro emprestado.\n");
+                    facade.buscarUser("1");
+
+                    Console.WriteLine("Caso um user tente pegar emprestado um livro que não tem mais na biblioteca.\n");
+                    facade.emprestaLivro(1,"5");
+
+                    Console.WriteLine("Devolução do livro pelo user 1");
+                    facade.devolveLivro(1,"1");
+
+                    Console.WriteLine("Como é registrado o user após devolver o livro.\n");
+                    facade.buscarUser("1");
+
+
+                    break;
+
+                case 7:
+                    break;       
 
             }
 

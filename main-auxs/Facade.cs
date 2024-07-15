@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -139,4 +140,10 @@ public class Facade {
         var livro = bookBD.getLivroCod(codLivro);
         livro[0].setCopOwned(copias);
     }
+
+    public void aplicarAdvert(string codUser){
+        var usuario = userBD.buscaUser(codUser);
+        usuario.giveAdvert();
+    }
+
 }
